@@ -1,13 +1,13 @@
  @font-face {
 	font-family: 'Assistant';
-	src: url('/@@/Assistant-Regular.ttf') format('truetype');
+	src: url('Assistant-Regular.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 	}
 
 @font-face {
 	font-family: 'Assistant';
-	src: url('/@@/Assistant-Bold.ttf') format('truetype');
+	src: url('Assistant-Bold.ttf') format('truetype');
 	font-weight: bold;
 	font-style: normal;
 	} 

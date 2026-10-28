@@ -1,4 +1,4 @@
-import WaveSurfer from '/wavesurfer/wavesurfer.esm.js';
+import WaveSurfer from 'wavesurfer/wavesurfer.esm.js';
 
 function fmtTime(s) {
 	const m = Math.floor(s / 60);
@@ -24,8 +24,8 @@ export class Library {
 
 	async load() {
 		const [tracksResp, psalmsResp] = await Promise.all([
-			fetch('/tracks.json'),
-			fetch('/psalms.csv'),
+			fetch('tracks.json'),
+			fetch('psalms.csv'),
 		]);
 		const json = await tracksResp.json();
 		const csv = await psalmsResp.text();
@@ -67,7 +67,7 @@ export class TracksView {
 {{#each tracks}}
 	{{#if psalm}}
 	<tr>
-		<td><img class="thumbnail" src="/jpg/{{id}}.jpg"></td>
+		<td><img class="thumbnail" src="jpg/{{id}}.jpg"></td>
 		<td><a href="#" data-id="{{id}}">{{data.title}}</a></td>
 		<td class="center">{{psalm}}</td>
 		<td class="center">{{fmtTime data.metadata.duration}}</td>
@@ -77,7 +77,7 @@ export class TracksView {
 {{#each tracks}}
 	{{#unless psalm}}
 	<tr>
-		<td><img class="thumbnail" src="/jpg/{{id}}.jpg"></td>
+		<td><img class="thumbnail" src="jpg/{{id}}.jpg"></td>
 		<td><a href="#" data-id="{{id}}">{{data.title}}</a></td>
 		<td class="center">{{psalm}}</td>
 		<td class="center">{{fmtTime data.metadata.duration}}</td>
@@ -154,7 +154,7 @@ export class Player {
 		this.infoEl.textContent = track.data.title || 'Untitled';
 		this.timeEl.textContent = '';
 		this._playOnReady = true;
-		this.wavesurfer.load('/mp3/' + track.id + '.mp3');
+		this.wavesurfer.load('mp3/' + track.id + '.mp3');
 	}
 
 	togglePlay() {
